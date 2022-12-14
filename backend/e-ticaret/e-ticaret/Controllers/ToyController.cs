@@ -10,45 +10,45 @@ namespace e_ticaret.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductsController : ControllerBase
+    public class ToyController : ControllerBase
     {
-        private readonly IProductCRUD  productCRUD;
+        private readonly IRepositoryToy _repositoryService;
 
-        public ProductsController(IProductCRUD productCRUD)
+        public ToyController(IRepositoryToy repositoryService)
         {
-            this.productCRUD = productCRUD;
+            _repositoryService = repositoryService;
         }
 
         // GET: api/<ProductsController>
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(productCRUD.GetAll());
+            return Ok(_repositoryService.GetAll());
         }
 
         // GET api/<ProductsController>/5
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            return Ok(productCRUD.GetById(id));
+            return Ok(_repositoryService.GetById(id));
         }
 
         // POST api/<ProductsController>
         [HttpPost]
-        public IActionResult Post([FromBody] ProductModel model)
+        public IActionResult Post([FromBody] Toy model)
         {
-            var product = productCRUD.Add(model);
+            var product = _repositoryService.Add(model);
             return Ok(product);
         }
 
         // PUT api/<ProductsController>/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] ProductModel model)
+        public IActionResult Put(int id, [FromBody] Toy model)
         {
-            var put = productCRUD.GetById(id);
-            if(put != null)
+            var put = _repositoryService.GetById(id);
+            if (put != null)
             {
-              productCRUD.Update(model);
+                _repositoryService.Update(model);
             }
             else
             {
@@ -61,19 +61,18 @@ namespace e_ticaret.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var del = productCRUD.GetById(id);
+            var del = _repositoryService.GetById(id);
             return Ok(del);
         }
-
-        [HttpGet("searchproduct/{name}")]
-        public IActionResult Get(string name)
+        [HttpGet("IncreaseCostList")]
+        public IActionResult GetCostList()
         {
-            var getName = productCRUD.GetByName(name);
-            if (getName.Name != name || getName == null)
-            {
-                return BadRequest("bulunamadı");
-            }
-            return Ok(getName);
+            return Ok(_repositoryService.toCostIncrease());
+        }
+        [HttpGet("DecreaseCostList")]
+        public IActionResult DecreaseCostList()
+        {
+            return Ok(_repositoryService.toCostDecreasing());
         }
 
     }
