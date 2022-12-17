@@ -23,6 +23,6 @@ namespace e_ticaret.DomainService
 
         T GetCategory(string category);
 
-        List<T> CostRange(int cost);
+        List<T> CostRange(int cost );
     }
 }

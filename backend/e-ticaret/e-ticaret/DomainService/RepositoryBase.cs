@@ -8,10 +8,12 @@ using Microsoft.EntityFrameworkCore.Update;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Any;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using System.Text.RegularExpressions;
 
 namespace e_ticaret.DomainService
 {
@@ -21,7 +23,7 @@ namespace e_ticaret.DomainService
        
     {
         private readonly TContext _context;
-        private List<T> products;
+       
 
         public RepositoryBase(TContext context)
         {
@@ -37,38 +39,40 @@ namespace e_ticaret.DomainService
 
         public List<T> CostRange(int cost)
         {
-            object products = new  { };
-            var price = GetByCost(cost);
+          List<T> products= new List<T>();
+            
 
-            if (price != null)
-            {
                 if (cost <= 500)
                 {
-                    this.products =  _context.Set<T>().AsNoTracking().Where(x => x.Cost <= 500).ToList();
-                 
+                    var asd = _context.Set<T>().Where(x => x.Cost <= 500).ToList();
+                    products.AddRange(asd);
                 }
 
                 if (cost > 500 && cost <= 2000)
                 {
-                    this.products = _context.Set<T>().AsNoTracking().Where(x => x.Cost > 500 && x.Cost <= 2000).ToList();
-
+                    var asd = _context.Set<T>().AsNoTracking().Where(x => x.Cost > 500 && x.Cost <= 2000).ToList();
+                    products.AddRange(asd);
                 }
                 if (cost > 2000 && cost <= 5000)
                 {
-                    this.products = _context.Set<T>().AsNoTracking().Where(x => x.Cost > 2000 && x.Cost <= 5000).ToList();
-
+                    var asd = _context.Set<T>().AsNoTracking().Where(x => x.Cost > 2000 && x.Cost <= 5000).ToList();
+                    products.AddRange(asd);
                 }
                 if (cost > 5000 && cost <= 10000)
                 {
-                    this.products = _context.Set<T>().AsNoTracking().Where(x => x.Cost > 5000 && x.Cost <= 10000).ToList();
-
+                    var asd = _context.Set<T>().AsNoTracking().Where(x => x.Cost > 5000 && x.Cost <= 10000).ToList();
+                    products.AddRange(asd);
                 }
                 if (cost > 10000)
                 {
-                    this.products = _context.Set<T>().AsNoTracking().Where(x => x.Cost > 10000).ToList();
+                    var asd = _context.Set<T>().AsNoTracking().Where(x => x.Cost > 10000).ToList();
+                    products.AddRange(asd);
                 }
-            }
-            return this.products;
+                
+           
+                
+            
+            return products; 
            
         }
         public void Delete(int id)
