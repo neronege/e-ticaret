@@ -1,3 +1,4 @@
+
 using e_ticaret.DomainService;
 using e_ticaret.Models;
 using Microsoft.AspNetCore.Builder;
@@ -42,17 +43,19 @@ namespace e_ticaret
             });
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnetion")));
 
-            /* services.AddTransient<IProductCRUD, ProductCRUD>()*/
+            services.AddScoped<IProductService, ProductService>();
             
+            /* services.AddTransient<IProductCRUD, ProductCRUD>()*/
 
-            services.AddScoped<IRepositoryToy, RepositoryToy>();
-            services.AddScoped<IRepositoryElectronic, RepositoryElectronic>();
-            services.AddScoped<IRepositoryOutdoor, RepositoryOutdoor>();
-            services.AddScoped<IRepositoryDress, RepositoryDress>();
-            services.AddScoped<IRepositoryFridge, RepositoryFridge>();
-            services.AddScoped<IRepositoryPhone, RepositoryPhone>();
-            services.AddScoped<IRepositoryTv, RepositoryTv>();
-            services.AddScoped<IRepositoryComputer, RepositoryComputer>();
+
+            //services.AddScoped<IRepositoryToy, RepositoryToy>();
+            //services.AddScoped<IRepositoryElectronic, RepositoryElectronic>();
+            //services.AddScoped<IRepositoryOutdoor, RepositoryOutdoor>();
+            //services.AddScoped<IRepositoryDress, RepositoryDress>();
+            //services.AddScoped<IRepositoryFridge, RepositoryFridge>();
+            //services.AddScoped<IRepositoryPhone, RepositoryPhone>();
+            //services.AddScoped<IRepositoryTv, RepositoryTv>();
+            //services.AddScoped<IRepositoryComputer, RepositoryComputer>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
