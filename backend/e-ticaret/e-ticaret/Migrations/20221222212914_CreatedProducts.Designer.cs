@@ -10,8 +10,8 @@ using e_ticaret.Models;
 namespace e_ticaret.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221221140247_eticaret_024")]
-    partial class eticaret_024
+    [Migration("20221222212914_CreatedProducts")]
+    partial class CreatedProducts
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

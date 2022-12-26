@@ -34,11 +34,13 @@ namespace e_ticaret.model
     }
     public enum DressType
     {
-        Shirt,
+        Shirt = 1,
         Pant,
         Dress,
         Suit
+   
     }
+     
     public class Product: EntityBase, IEntity
     {
 
@@ -48,6 +50,7 @@ namespace e_ticaret.model
         public decimal Cost { get; set; }
         public ProductType ProductType { get; set; }
         public int SubType { get; set; }
-
     }
+
 }
+

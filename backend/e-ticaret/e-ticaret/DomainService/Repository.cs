@@ -19,15 +19,18 @@ namespace e_ticaret.DomainService
 
         public TEntity Add(TEntity entity)
         {
-            entity.CreatedOn = DateTime.Now;
+          
              _context.Set<TEntity>().Add(entity);
-            _context.SaveChanges();
-            return entity;
+             _context.SaveChanges();
+             return entity;
         }
 
         public void Delete(int id)
         {
-            throw new System.NotImplementedException();
+            var model = _context.Set<TEntity>().Find(id);
+            _context.Set<TEntity>().Remove(model);
+            _context.SaveChanges();
+
         }
 
         public List<TEntity> GetAll()
