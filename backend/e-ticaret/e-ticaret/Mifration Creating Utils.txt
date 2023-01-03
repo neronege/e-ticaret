@@ -1,0 +1,2 @@
+﻿ dotnet ef migrations add eticaret_027 -c ApplicationDbContext -s e-ticaret.csproj
+ dotnet ef database update -c ApplicationDbContext  -s e-ticaret.csproj

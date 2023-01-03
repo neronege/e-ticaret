@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace e_ticaret.model
 {
-    public enum ProductType
+    public enum ProductTypeEnum
     {
         Electronic = 1,
         Outdoor,
@@ -48,7 +48,7 @@ namespace e_ticaret.model
         public string Category { get; set; }
         public string Description { get; set; }
         public decimal Cost { get; set; }
-        public ProductType ProductType { get; set; }
+        public int ProductType { get; set; }
         public int SubType { get; set; }
     }
 

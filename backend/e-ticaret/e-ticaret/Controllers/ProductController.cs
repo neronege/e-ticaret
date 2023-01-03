@@ -87,42 +87,42 @@ namespace e_ticaret.Controllers
             return Ok(model);
         }
 
-        [HttpGet("GetProdutcsByproductType/{productType}")]
+        //[HttpGet("GetProdutcsByproductType/{productType}")]
 
-        public IActionResult GetProductsByproductType(ProductType productType)
-        {
-            var products = service.GetProductsByProductType(productType);
-            return Ok(products);
-        }
+        //public IActionResult GetProductsByproductType(ProductType productType)
+        //{
+        //    var products = service.GetProductsByProductType(productType);
+        //    return Ok(products);
+        //}
 
 
-        [HttpGet("GetProductsBySubCategory/{productType}/{subCategory}")]
-        public IActionResult GetProductsBySubCategory( ProductType productType, int subCategory)
-        {
-            return Ok(GetProductsBySubCategory(productType, subCategory));
-            //var products = GetProductsByproductType(productType);
-            //if (products == GetDresses())
-            //{
-            //  service.GetSubCategory(subCategory);
-            //}
-            //if (products == GetToys())
-            //{
-            //    service.GetSubCategory(subCategory);
-            //}
-            //if (products == GetOutdoors())
-            //{
-            //    service.GetSubCategory(subCategory);
-            //}
-            //if (products == GetElectronics())
-            //{
-            //   GetSubCategory(subCategory);
-            //}
-            //else
-            //{
-            //    return BadRequest();
-            //}
-            //return Ok(products);
-        }
+        //[HttpGet("GetProductsBySubCategory/{productType}/{subCategory}")]
+        //public IActionResult GetProductsBySubCategory( ProductType productType, int subCategory)
+        //{
+        //    return Ok(GetProductsBySubCategory(productType, subCategory));
+        //    //var products = GetProductsByproductType(productType);
+        //    //if (products == GetDresses())
+        //    //{
+        //    //  service.GetSubCategory(subCategory);
+        //    //}
+        //    //if (products == GetToys())
+        //    //{
+        //    //    service.GetSubCategory(subCategory);
+        //    //}
+        //    //if (products == GetOutdoors())
+        //    //{
+        //    //    service.GetSubCategory(subCategory);
+        //    //}
+        //    //if (products == GetElectronics())
+        //    //{
+        //    //   GetSubCategory(subCategory);
+        //    //}
+        //    //else
+        //    //{
+        //    //    return BadRequest();
+        //    //}
+        //    //return Ok(products);
+        //}
 
         [HttpGet("GetSubCategory/{subCategory}")]
         public IActionResult GetSubCategory(int subCategory)
@@ -130,43 +130,43 @@ namespace e_ticaret.Controllers
             return Ok(GetSubCategory(subCategory));
         }
 
-        [HttpGet("IncreaseCostList/{productType}/{subCategory}")]
-        public IActionResult GetIncreaseCostList(ProductType productType, int subCategory)
-        {
-            var products = GetProductsByproductType(productType);
-            if (products == GetElectronics())
-            {
+        //[HttpGet("IncreaseCostList/{productType}/{subCategory}")]
+        //public IActionResult GetIncreaseCostList(ProductType productType, int subCategory)
+        //{
+        //    var products = GetProductsByproductType(productType);
+        //    if (products == GetElectronics())
+        //    {
 
-                service.toCostIncrease(subCategory);
-            }
+        //        service.toCostIncrease(subCategory);
+        //    }
 
-            if (products == GetDresses())
-            {
+        //    if (products == GetDresses())
+        //    {
               
-                service.toCostIncrease(subCategory);
-            }
-            if (products == GetToys())
-            {
+        //        service.toCostIncrease(subCategory);
+        //    }
+        //    if (products == GetToys())
+        //    {
               
-                service.toCostIncrease(subCategory);
-            }
-            if (products == GetOutdoors())
-            {
+        //        service.toCostIncrease(subCategory);
+        //    }
+        //    if (products == GetOutdoors())
+        //    {
              
-                service.toCostIncrease(subCategory);
-            }
+        //        service.toCostIncrease(subCategory);
+        //    }
         
-            return Ok(products);
-        }
+        //    return Ok(products);
+        //}
       
         
-        [HttpGet("GetSubCategoriesbyProductType/{productType}")]
+        //[HttpGet("GetSubCategoriesbyProductType/{productType}")]
 
-        public IActionResult GetSubCategoriesByProductType(ProductType productType)
-        {
-            var products = service.GetSubCategoriesByProductType(productType);
-            return Ok(products);
-        }
+        //public IActionResult GetSubCategoriesByProductType(ProductType productType)
+        //{
+        //    var products = service.GetSubCategoriesByProductType(productType);
+        //    return Ok(products);
+        //}
     }
 }
 

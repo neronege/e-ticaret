@@ -44,7 +44,8 @@ namespace e_ticaret
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnetion")));
 
             services.AddScoped<IProductService, ProductService>();
-            
+            services.AddScoped<IProductTypeService, ProductTypeService>();
+
             /* services.AddTransient<IProductCRUD, ProductCRUD>()*/
 
 

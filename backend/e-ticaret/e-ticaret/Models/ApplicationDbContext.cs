@@ -11,13 +11,14 @@ namespace e_ticaret.Models
 
         }
        public DbSet<Product> Products { get; set; }
-       //public DbSet<Outdoor> Outdoors { get; set; }
-       //public DbSet <Electronic> Electronic { get; set; }
-       //public DbSet<Dress> Dresses { get; set; }
-       //public DbSet<Fridge> Fridges { get; set; }
-       //public DbSet<Computer> Computers { get; set; }
-       //public DbSet<Tv> Tvs { get; set; }
-       //public DbSet<Phone> Phones { get; set; }
+       public DbSet<ProductType> ProductTypes { get; set; }
+        //public DbSet<Outdoor> Outdoors { get; set; }
+        //public DbSet <Electronic> Electronic { get; set; }
+        //public DbSet<Dress> Dresses { get; set; }
+        //public DbSet<Fridge> Fridges { get; set; }
+        //public DbSet<Computer> Computers { get; set; }
+        //public DbSet<Tv> Tvs { get; set; }
+        //public DbSet<Phone> Phones { get; set; }
 
     }
 }

@@ -10,10 +10,10 @@ namespace e_ticaret.DomainService
         List<Product> GetOutdoors();
         List<Product> GetDresses();
         List<Product> GetToys();
-        List<Product> GetProductsBySubCategory(ProductType productType, int subCategory);
+        List<Product> GetProductsBySubCategory(int productType, int subCategory);
         List<Product> GetSubCategory(int subCategory);
-        List<(int, string)> GetSubCategoriesByProductType(ProductType productType);
-        List<Product> GetProductsByProductType(ProductType productType);
+ 
+        List<Product> GetProductsByProductType(int productType);
         List<Product> toCostIncrease(int subCategory);
         List<Product> toCostDecreasing(int subCategory);
     }
